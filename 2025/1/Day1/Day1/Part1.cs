@@ -1,6 +1,8 @@
-﻿public static class Part1
+﻿namespace Day1_1;
+
+public static class Part1
 {
-    public static void Run(string[] args)
+    public static void Main()
     {
         const int min = 0;
         const int max = 99;
@@ -10,8 +12,8 @@
         var runAsTest = false;
 
         var path = runAsTest
-            ? Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "day1-testinput.txt"))
-            : Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "day1-input.txt"));
+        ? Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "testinput.txt"))
+        : Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "input.txt"));
 
         foreach (var raw in File.ReadLines(path))
         {
