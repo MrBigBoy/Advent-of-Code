@@ -1,39 +1,32 @@
-﻿const int min = 0;
-const int max = 99;
-const int range = max - min + 1;
-var position = 50;
-var zeros = 0;
-
-var path = args.Length > 0
-            ? args[0]
-            : Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "input.txt"));
-
-foreach (var raw in File.ReadLines(path))
+public static class Program
 {
-    var line = raw.Trim();
-    if (line.Length == 0)
+    public static void Main(string[] args)
     {
-        continue;
-    }
+        // Usage: dotnet run -- [part] [inputPath]
+        // part: "1"|"part1" or "2"|"part2" (defaults to 1)
+        // inputPath: optional; if omitted, uses ../../../input.txt
 
-    var dir = line[0];
-    if (dir is not 'L' and not 'R')
-    {
-        continue;
-    }
+        if (args.Length == 0)
+        {
+            Part1.Run(Array.Empty<string>());
+            return;
+        }
 
-    if (!int.TryParse(line.AsSpan(1), out var distance))
-    {
-        continue;
-    }
-
-    var delta = dir == 'L' ? -distance : distance;
-    position = (((position + delta) % range) + range) % range;
-
-    if (position == 0)
-    {
-        zeros++;
+        var partArg = args[0].ToLowerInvariant();
+        if (partArg is "1" or "part1")
+        {
+            var rest = args.Length > 1 ? args[1..] : Array.Empty<string>();
+            Part1.Run(rest);
+        }
+        else if (partArg is "2" or "part2")
+        {
+            var rest = args.Length > 1 ? args[1..] : Array.Empty<string>();
+            Part2.Run(rest);
+        }
+        else
+        {
+            // If the first arg isn't a part selector, assume it's a path for Part1
+            Part1.Run(args);
+        }
     }
 }
-
-Console.WriteLine(zeros);
