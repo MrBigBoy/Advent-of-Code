@@ -2,4 +2,5 @@
   <Project Path="../../2/Day2-1/Day2-1.csproj" Id="af78e7de-83ab-4e0e-9a13-4c9d0f2b3b70" />
   <Project Path="Day1-2/Day1-2.csproj" />
   <Project Path="Day1/Day1-1.csproj" />
+  <Project Path="Day2-2/Day2-2.csproj" Id="c123afe9-7894-42fd-a416-d6555d8bd8f2" />
 </Solution>
