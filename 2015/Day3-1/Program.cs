@@ -15,21 +15,26 @@ foreach (var c in input)
         case '^':
             y += 1;
             break;
+
         case 'v':
             y -= 1;
             break;
+
         case '>':
             x += 1;
             break;
+
         case '<':
             x -= 1;
             break;
+
         default:
+
             // ignore any unexpected characters
             continue;
     }
 
-    visited.Add((x, y));
+    _ = visited.Add((x, y));
 }
 
 Console.WriteLine(visited.Count);

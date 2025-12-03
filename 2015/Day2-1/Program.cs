@@ -13,7 +13,7 @@ foreach (var c in await File.ReadAllLinesAsync(path))
     var wh = w * h;
     var hl = h * l;
 
-    surface += 2 * (lw + wh + hl) + Math.Min(lw, Math.Min(wh, hl));
+    surface += (2 * (lw + wh + hl)) + Math.Min(lw, Math.Min(wh, hl));
 }
 
 Console.WriteLine($"Total surface area: {surface}");

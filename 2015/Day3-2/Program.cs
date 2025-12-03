@@ -9,34 +9,39 @@ int sx = 0, sy = 0; // Santa
 int rx = 0, ry = 0; // Robo-Santa
 visited.Add((0, 0));
 
-for (int i = 0; i < input.Length; i++)
+for (var i = 0; i < input.Length; i++)
 {
     var c = input[i];
-    bool santaTurn = (i % 2) == 0;
+    var santaTurn = (i % 2) == 0;
 
-    ref int x = ref santaTurn ? ref sx : ref rx;
-    ref int y = ref santaTurn ? ref sy : ref ry;
+    ref var x = ref santaTurn ? ref sx : ref rx;
+    ref var y = ref santaTurn ? ref sy : ref ry;
 
     switch (c)
     {
         case '^':
             y += 1;
             break;
+
         case 'v':
             y -= 1;
             break;
+
         case '>':
             x += 1;
             break;
+
         case '<':
             x -= 1;
             break;
+
         default:
+
             // ignore any unexpected characters
             continue;
     }
 
-    visited.Add((x, y));
+    _ = visited.Add((x, y));
 }
 
 Console.WriteLine(visited.Count);

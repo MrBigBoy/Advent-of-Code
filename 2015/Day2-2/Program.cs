@@ -11,7 +11,7 @@ foreach (var c in await File.ReadAllLinesAsync(path))
 
     // Smallest perimeter uses the two smallest dimensions
     Array.Sort(dimensions); // ascending: dimensions[0] and dimensions[1] are the smallest
-    var r = dimensions[0] * 2 + dimensions[1] * 2;
+    var r = (dimensions[0] * 2) + (dimensions[1] * 2);
     var bow = l * w * h;
     ribbonLength += r + bow;
 }
