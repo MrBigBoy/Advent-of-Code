@@ -1,6 +1,6 @@
-﻿namespace Day2_2;
+﻿namespace Day2_1;
 
-public static class Part2
+public static class Program
 {
     public static void Main()
     {
@@ -31,7 +31,7 @@ public static class Part2
 
                 for (var id = min; id <= max; id++)
                 {
-                    if (IsMadeOfRepeatedSequence(id))
+                    if (IsRepeatedTwice(id))
                     {
                         sumInvalidIds += id;
                     }
@@ -42,28 +42,13 @@ public static class Part2
         Console.WriteLine(sumInvalidIds);
     }
 
-    // Invalid if digits is made of some sequence of digits
-    private static bool IsMadeOfRepeatedSequence(long number)
+    // Invalid if digits form X+X (exactly two copies of same substring, no leading zero case already ensured by input).
+    private static bool IsRepeatedTwice(long number)
     {
         var s = number.ToString();
-        var len = s.Length;
-        for (var seqLen = 1; seqLen <= len / 2; seqLen++)
-        {
-            if (len % seqLen != 0)
-                continue; // sequence length must divide total length
-            var sequence = s.AsSpan(0, seqLen);
-            var isValid = true;
-            for (var pos = seqLen; pos < len; pos += seqLen)
-            {
-                if (!sequence.SequenceEqual(s.AsSpan(pos, seqLen)))
-                {
-                    isValid = false;
-                    break;
-                }
-            }
-            if (isValid)
-                return true;
-        }
-        return false;
+        if (s.Length % 2 != 0)
+            return false; // must split into two equal halves
+        var half = s.Length / 2;
+        return s.AsSpan(0, half).SequenceEqual(s.AsSpan(half, half));
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Day1_1;
 
-public static class Part1
+public static class Program
 {
     public static void Main()
     {
