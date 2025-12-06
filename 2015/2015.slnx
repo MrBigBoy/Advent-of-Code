@@ -1,6 +1,8 @@
 <Solution>
   <Project Path="Day1-1/Day1-1.csproj" />
   <Project Path="Day1-2/Day1-2.csproj" />
+  <Project Path="Day10-1/Day10-1.csproj" />
+  <Project Path="Day10-2/Day10-2.csproj" />
   <Project Path="Day2-1/Day2-1.csproj" />
   <Project Path="Day2-2/Day2-2.csproj" />
   <Project Path="Day3-1/Day3-1.csproj" Id="6f8b36c5-a1a8-40fe-9ad3-eba1a7535749" />
